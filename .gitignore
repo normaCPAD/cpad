@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.venv/
+venv/
+
+# Large datasets not bundled with the repo (see data/README.md)
+data/tax/
+data/beers/
+data/flights/
+data/movies_1/
+data/rayyan/
+
+# Local results
+*.log
+results_*.csv

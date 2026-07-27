@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cpad"
+version = "0.1.0"
+description = "CPAD: Constrained Predicates for Anomaly Detection -- learn the denial constraints governing a table and score relational anomalies."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "scikit-learn",
+]
+
+[project.optional-dependencies]
+gated = ["torch"]                       # the differentiable GatedCPAD variant only
+baselines = ["pyod", "desbordante"]     # pyod: IForest/LOF/ECOD; desbordante: HyFD/Pyro/FastADC discovery
+benchmarks = ["requests"]               # Wikidata-SHACL benchmark builder (SPARQL over HTTPS)
+dev = ["pytest"]
+
+[project.scripts]
+cpad = "cpad.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["cpad*"]
